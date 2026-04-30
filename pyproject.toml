@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dcc-canon-rag"
+version = "0.1.0"
+description = "Vector search service over the dcc canon corpus"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chromadb>=1.0",
+    "sentence-transformers>=3.0",
+    "onnxruntime>=1.18",
+    "fastapi>=0.115",
+    "uvicorn>=0.34",
+    "pyyaml>=6.0",
+]
+
+[project.urls]
+Repository = "https://github.com/dcolclazier/dcc-canon-rag"
+
+[tool.setuptools.packages.find]
+include = ["rag*"]
