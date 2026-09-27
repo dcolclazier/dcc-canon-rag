@@ -70,9 +70,11 @@ def index_all(domains: list[str] | None = None):
         all_chunks.extend(chunks)
         print(f"  Bestiary: {len(chunks)} chunks")
 
-    # Achievements
+    # Achievements: NOT indexed by default (2026-09-27, the developer's ruling). The old examples came from
+    # a pipeline with book-derived few-shots; they are being salvaged into dcc-game's Voice exemplars
+    # instead. Only an explicit `achievements` target still indexes them, for inspection.
     examples_dir = TRUTH / "facility_ai" / "achievements" / "examples"
-    if examples_dir.exists() and (not target or "achievements" in target):
+    if examples_dir.exists() and target and "achievements" in target:
         chunks = chunk_achievements(examples_dir)
         all_chunks.extend(chunks)
         print(f"  Achievements: {len(chunks)} chunks")
